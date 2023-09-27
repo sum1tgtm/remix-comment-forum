@@ -21,7 +21,7 @@ export const BlogList = () => {
       {blogList.map((blog, i) => (
         <div key={i}>
           <Separator />
-          <CardContent className="py-3">
+          <CardContent className="py-3 hover:text-blue-700">
             <Link to="#">
               {blog}
             </Link>

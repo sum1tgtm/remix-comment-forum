@@ -19,9 +19,7 @@ export default function Index() {
         <aside>
           <Sidebar />
         </aside>
-        <article>
           <BlogPost />
-        </article>
         <aside>
           <RightPanel />
         </aside>

@@ -1,6 +1,11 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Button } from "~/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "~/components/ui/card";
 
 export const AuthorCard = () => {
   return (
@@ -9,9 +14,11 @@ export const AuthorCard = () => {
       <CardHeader className="absolute -top-1.5 flex flex-row items-end gap-4 cursor-pointer">
         <Avatar className="h-12 w-12">
           <AvatarImage src="https://github.com/shadcn.png" alt="john doe" />
-          <AvatarFallback>John Doe</AvatarFallback>
+          <AvatarFallback>JD</AvatarFallback>
         </Avatar>
-        <span className="text-lg font-bold hover:text-indigo-900/95">john doe</span>
+        <span className="text-lg font-bold hover:text-indigo-900/95">
+          john doe
+        </span>
       </CardHeader>
       <CardContent className="pt-[52px] ">
         <Button className="w-full">Follow</Button>
