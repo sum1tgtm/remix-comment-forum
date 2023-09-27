@@ -3,6 +3,7 @@ import { Navbar } from "~/components/navbar";
 import { Sidebar } from "~/components/sidebar";
 import { RightPanel } from "~/components/right-panel";
 import { BlogPost } from "~/components/blog-post";
+// import { createClient } from "@supabase/supabase-js";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,7 +20,7 @@ export default function Index() {
         <aside>
           <Sidebar />
         </aside>
-          <BlogPost />
+        <BlogPost />
         <aside>
           <RightPanel />
         </aside>
