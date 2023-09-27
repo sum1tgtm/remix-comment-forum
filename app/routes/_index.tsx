@@ -1,8 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Navbar } from "~/components/navbar";
-import banner from "../images/banner.webp";
 import { Sidebar } from "~/components/sidebar";
 import { RightPanel } from "~/components/right-panel";
+import { BlogPost } from "~/components/blog-post";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,15 +16,15 @@ export default function Index() {
     <div className="font-sans bg-[#f5f5f5]">
       <Navbar />
       <main className="min-h-screen max-w-screen-xl mx-auto pt-4 flex gap-4">
-        <div className="sticky left-0">
+        <aside>
           <Sidebar />
-        </div>
-        <div>
-          <img src={banner} alt="typescript vs golang" className="rounded-t" />
-        </div>
-        <div>
+        </aside>
+        <article>
+          <BlogPost />
+        </article>
+        <aside>
           <RightPanel />
-        </div>
+        </aside>
       </main>
     </div>
   );

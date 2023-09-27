@@ -1,20 +1,33 @@
 import { Link } from "@remix-run/react";
 import { Card, CardContent, CardHeader } from "./ui/card";
+import { Separator } from "./ui/separator";
 
 export const BlogList = () => {
+  const blogList = [
+    "How to Easily Create New Mock Instances in Unit Tests",
+    "Development Journey Pitfalls",
+    "Top 10 JavaScript Libraries You Must Know",
+  ];
   return (
-    <Card>
-      <CardHeader className="font-bold text-2xl">
-        <div className="flex flex-row items-center gap-1">
+    <Card className="w-[346px]">
+      <CardHeader className="font-bold text-2xl py-3">
+        <h2 className="flex flex-row items-center gap-1">
           More from
           <Link to="/" className="text-primary">
             john doe
           </Link>
-        </div>
+        </h2>
       </CardHeader>
-      <CardContent>
-        <div></div>
-      </CardContent>
+      {blogList.map((blog, i) => (
+        <div key={i}>
+          <Separator />
+          <CardContent className="py-3">
+            <Link to="#">
+              {blog}
+            </Link>
+          </CardContent>
+        </div>
+      ))}
     </Card>
   );
 };

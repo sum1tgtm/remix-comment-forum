@@ -8,7 +8,7 @@ import {
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col pt-16 pr-4 gap-8">
+    <div className="flex flex-col pt-16 xl:pr-4 gap-8">
       <div className="flex flex-col justify-center gap-2">
         <TooltipProvider delayDuration={10}>
           <Tooltip>
