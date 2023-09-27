@@ -16,7 +16,7 @@ export default function Index() {
   return (
     <div className="font-sans bg-[#f5f5f5]">
       <Navbar />
-      <main className="min-h-screen max-w-screen-xl mx-auto pt-4 flex gap-4">
+      <main className="min-h-screen max-w-screen-xl mx-auto pt-4 flex gap-4 px-4">
         <aside>
           <Sidebar />
         </aside>
