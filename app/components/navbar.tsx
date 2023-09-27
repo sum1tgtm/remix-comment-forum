@@ -6,7 +6,7 @@ import { Link } from "@remix-run/react";
 
 export const Navbar = () => {
   return (
-    <nav className="shadow-md">
+    <nav className="shadow-md bg-white">
       <div className="max-w-screen-xl mx-auto flex py-2">
         <div className="sm:flex-1 flex items-center gap-8">
           <Link to="/">
@@ -28,14 +28,14 @@ export const Navbar = () => {
           <Button
             variant="link"
             asChild
-            className="font-normal text-muted-foreground"
+            className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out"
           >
             <Link to="/login">Log in</Link>
           </Button>
           <Button
             variant="link"
             asChild
-            className="outline outline-offset-0 outline-1 outline-indigo-500"
+            className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out"
           >
             <Link to="/login">Create Account</Link>
           </Button>
