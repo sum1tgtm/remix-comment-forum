@@ -28,14 +28,14 @@ export const Navbar = () => {
           <Button
             variant="link"
             asChild
-            className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out"
+            className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out text-base"
           >
             <Link to="/login">Log in</Link>
           </Button>
           <Button
             variant="link"
             asChild
-            className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out"
+            className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out text-base"
           >
             <Link to="/login">Create Account</Link>
           </Button>

@@ -20,7 +20,7 @@ export default function Index() {
           <Sidebar />
         </div>
         <div>
-          <img src={banner} alt="typescript vs golang" className="rounded" />
+          <img src={banner} alt="typescript vs golang" className="rounded-t" />
         </div>
         <div>
           <RightPanel />
