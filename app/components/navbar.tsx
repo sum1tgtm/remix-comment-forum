@@ -3,8 +3,10 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import logo from "../images/logo.png";
 import { Link } from "@remix-run/react";
+import { UserButton, useAuth } from "@clerk/remix";
 
 export const Navbar = () => {
+  const { userId } = useAuth();
   return (
     <nav className="shadow-md bg-white">
       <div className="max-w-screen-xl mx-auto flex py-2 px-4">
@@ -24,22 +26,28 @@ export const Navbar = () => {
             </Button>
           </div>
         </div>
-        <div className="flex gap-4">
-          <Button
-            variant="link"
-            asChild
-            className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out text-base"
-          >
-            <Link to="/sign-in">Log in</Link>
-          </Button>
-          <Button
-            variant="link"
-            asChild
-            className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out text-base"
-          >
-            <Link to="/sign-up">Create Account</Link>
-          </Button>
-        </div>
+        {!userId ? (
+          <div className="flex gap-4">
+            <Button
+              variant="link"
+              asChild
+              className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out text-base"
+            >
+              <Link to="/sign-in">Log in</Link>
+            </Button>
+            <Button
+              variant="link"
+              asChild
+              className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out text-base"
+            >
+              <Link to="/sign-up">Create Account</Link>
+            </Button>
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <UserButton showName/>
+          </div>
+        )}
       </div>
     </nav>
   );

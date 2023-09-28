@@ -1,8 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import banner from "~/images/banner.webp";
-import { Separator } from "./ui/separator";
+import { Separator } from "~/components/ui/separator";
+import { CommentSection } from "~/components/comment-section";
 
-export const BlogPost = () => {
+interface PropType {
+  userId: string | null;
+}
+
+export const BlogPost = ({ userId }: PropType) => {
   return (
     <div className="min-h-screen bg-white">
       <img src={banner} alt="typescript vs golang" className="rounded-t" />
@@ -32,7 +37,7 @@ export const BlogPost = () => {
       <Separator />
       <div className="py-8 px-16">
         <span className="font-bold text-2xl">Top Comments</span>
-        
+        <CommentSection />
       </div>
     </div>
   );
