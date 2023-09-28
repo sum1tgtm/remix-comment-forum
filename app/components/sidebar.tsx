@@ -5,10 +5,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { Button } from "./ui/button";
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col pt-16 xl:px-4 gap-8">
+    <div className="flex flex-col pt-16 xl:px-4 gap-8 items-center">
       <div className="flex flex-col justify-center gap-2">
         <TooltipProvider delayDuration={10}>
           <Tooltip>
@@ -42,7 +43,13 @@ export const Sidebar = () => {
           <TooltipContent>Save to bookmarks</TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <MoreHorizontal className="cursor-pointer hover:rounded-full hover:bg-gray-300/50 text-muted-foreground hover:text-foreground" />
+      <Button
+        size="icon"
+        variant="ghost"
+        className="rounded-full hover:bg-gray-300/50"
+      >
+        <MoreHorizontal className="text-muted-foreground hover:text-foreground" />
+      </Button>
     </div>
   );
 };

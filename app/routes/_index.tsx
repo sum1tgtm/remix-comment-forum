@@ -23,7 +23,19 @@ export const meta: MetaFunction = () => {
 export const loader = async (args: DataFunctionArgs) => {
   const { userId } = await getAuth(args);
 
-  const comments = await db.comment.findMany();
+  const comments = await db.comment.findMany({
+    include: {
+      user: {
+        select: {
+          imageUrl: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
   return {
     comments,
     userId,
@@ -76,7 +88,7 @@ export default function Index() {
         <aside>
           <Sidebar />
         </aside>
-        <BlogPost userId={userId} />
+        <BlogPost userId={userId} comments={comments} />
         <aside>
           <RightPanel />
         </aside>

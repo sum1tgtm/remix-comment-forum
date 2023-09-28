@@ -1,10 +1,15 @@
 import { Form, useNavigation } from "@remix-run/react";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import { Button } from "./ui/button";
-import { Textarea } from "./ui/textarea";
 import { useEffect, useRef } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Button } from "~/components/ui/button";
+import { Textarea } from "~/components/ui/textarea";
+import type { CommentsType } from "~/lib/types";
 
-export const CommentSection = () => {
+interface PropType {
+  comments: CommentsType;
+}
+
+export const CommentSection = ({ comments }: PropType) => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const navigation = useNavigation();
@@ -29,7 +34,7 @@ export const CommentSection = () => {
           className="w-full max-w-full"
         >
           <Textarea placeholder="Add to the discussion" name="message" />
-          <Button type="submit" className="mt-3 px-6">
+          <Button type="submit" className="mt-3 px-6" disabled={isSubmitting}>
             Submit
           </Button>
         </Form>
