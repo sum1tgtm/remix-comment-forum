@@ -11,20 +11,18 @@ export const BlogList = () => {
   return (
     <Card className="w-[346px]">
       <CardHeader className="font-bold text-2xl py-3">
-        <h2 className="flex flex-row items-center gap-1">
-          More from
+        <span className="flex flex-row items-center">
+          More from &thinsp;
           <Link to="/" className="text-primary">
             john doe
           </Link>
-        </h2>
+        </span>
       </CardHeader>
       {blogList.map((blog, i) => (
         <div key={i}>
           <Separator />
           <CardContent className="py-3 hover:text-blue-700">
-            <Link to="#">
-              {blog}
-            </Link>
+            <Link to="#">{blog}</Link>
           </CardContent>
         </div>
       ))}
