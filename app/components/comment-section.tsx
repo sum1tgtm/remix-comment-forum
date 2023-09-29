@@ -13,7 +13,6 @@ interface PropType {
 
 export const CommentSection = ({ comments }: PropType) => {
   const commentFormRef = useRef<HTMLFormElement | null>(null);
-  const replyFormRef = useRef<HTMLFormElement | null>(null);
 
   const navigation = useNavigation();
   let isSubmitting = navigation.state === "submitting";
@@ -21,9 +20,8 @@ export const CommentSection = ({ comments }: PropType) => {
   useEffect(() => {
     if (!isSubmitting) {
       commentFormRef.current?.reset();
-      replyFormRef.current?.reset();
     }
-  }, [isSubmitting, navigation]);
+  }, [isSubmitting]);
 
   const commentsByParent = useMemo(() => {
     if (comments.length === 0) {

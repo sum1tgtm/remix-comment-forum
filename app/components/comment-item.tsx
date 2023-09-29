@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { Form, useNavigation } from "@remix-run/react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CommentList } from "./comment-list";
 
 interface PropType {
@@ -17,14 +17,20 @@ interface PropType {
 export const CommentItem = ({ comment, getReplies }: PropType) => {
   const replyFormRef = useRef<HTMLFormElement | null>(null);
 
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const handleFormVisibility = () => {
+    setIsFormVisible((prev) => !prev);
+  };
+
   const navigation = useNavigation();
   let isSubmitting = navigation.state === "submitting";
 
   useEffect(() => {
     if (!isSubmitting) {
       replyFormRef.current?.reset();
+      setIsFormVisible(false);
     }
-  }, [isSubmitting, navigation]);
+  }, [isSubmitting]);
 
   const childComments = getReplies(comment.id);
   return (
@@ -56,7 +62,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
             <ThumbsUp className="h-4 w-4 mr-2" />
             <span className="font-normal">3 Likes</span>
           </Button>
-          <Button variant="ghost" type="button">
+          <Button variant="ghost" type="button" onClick={handleFormVisibility}>
             <MessageSquare className="h-4 w-4 mr-2" />
             <span className="font-normal"> Reply</span>
           </Button>
@@ -66,7 +72,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           ref={replyFormRef}
           method="post"
           action="/?index"
-          className="w-full max-w-full"
+          className={`w-full max-w-full ${isFormVisible ? "block" : "hidden"}`}
         >
           <Input type="hidden" name="parentId" value={comment.id} />
           <Textarea placeholder="Add to the discussion" name="message" />
