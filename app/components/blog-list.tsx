@@ -9,8 +9,8 @@ export const BlogList = () => {
     "Top 10 JavaScript Libraries You Must Know",
   ];
   return (
-    <Card className="w-[346px]">
-      <CardHeader className="font-bold text-2xl py-3">
+    <Card className="">
+      <CardHeader className="font-bold text-xl py-3">
         <span className="flex flex-row items-center">
           More from &thinsp;
           <Link to="/" className="text-primary">

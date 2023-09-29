@@ -75,7 +75,7 @@ export const CommentSection = ({ comments }: PropType) => {
       </div>
 
       <div className="pt-6">
-        {rootComments != null && rootComments.length > 0 && (
+        {rootComments !== null && rootComments.length > 0 && (
           <CommentList comments={rootComments} getReplies={getReplies} />
         )}
       </div>

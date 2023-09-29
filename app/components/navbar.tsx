@@ -8,13 +8,13 @@ import { UserButton, useAuth } from "@clerk/remix";
 export const Navbar = () => {
   const { userId } = useAuth();
   return (
-    <nav className="shadow-md bg-white max-h-14">
-      <div className="max-w-screen-xl mx-auto flex py-2 px-4">
-        <div className="sm:flex-1 flex items-center gap-6">
+    <nav className="shadow-md bg-white">
+      <div className="max-w-screen-xl mx-auto flex py-2 px-4 items-center">
+        <div className="flex-1 flex items-center gap-6">
           <Link to="/">
             <img src={logo} alt="" className="w-[120px] h-auto" />
           </Link>
-          <div className="max-w-sm w-full relative">
+          <div className="max-w-sm w-full hidden sm:block relative">
             <Input type="text" placeholder="Search..." />
             <Button
               type="button"
@@ -44,9 +44,7 @@ export const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <div className="flex items-center max-h-full">
-            <UserButton showName />
-          </div>
+          <UserButton   />
         )}
       </div>
     </nav>

@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col pt-16 xl:px-4 gap-8 items-center">
+    <aside className="sm:flex flex-col pt-16 xl:px-4 gap-8 items-center hidden">
       <div className="flex flex-col justify-center gap-2">
         <TooltipProvider delayDuration={10}>
           <Tooltip>
@@ -50,6 +50,6 @@ export const Sidebar = () => {
       >
         <MoreHorizontal className="text-muted-foreground group-hover:text-foreground" />
       </Button>
-    </div>
+    </aside>
   );
 };

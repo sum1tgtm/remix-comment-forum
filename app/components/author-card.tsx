@@ -9,7 +9,7 @@ import {
 
 export const AuthorCard = () => {
   return (
-    <Card className="w-[346px] px-0 relative">
+    <Card className="px-0 relative">
       <div className="py-4 bg-indigo-950 rounded-t"></div>
       <CardHeader className="absolute -top-1.5 flex flex-row items-end gap-4 cursor-pointer">
         <Avatar className="h-12 w-12">

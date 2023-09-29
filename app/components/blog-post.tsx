@@ -12,9 +12,9 @@ interface PropType {
 export const BlogPost = ({ userId, comments }: PropType) => {
   return (
     <div className="min-h-screen bg-white">
-      <img src={banner} alt="typescript vs golang" className="rounded-t" />
+      <img src={banner} alt="typescript vs golang" className="sm:rounded-t" />
 
-      <div className="py-8 px-16">
+      <div className="py-8 px-3 md:px-12 lg:px-16">
         <div className="flex gap-4">
           <Avatar className="h-10 w-10 cursor-pointer">
             <AvatarImage src="https://github.com/shadcn.png" alt="john doe" />
@@ -30,15 +30,17 @@ export const BlogPost = ({ userId, comments }: PropType) => {
           </div>
         </div>
         <article className="pt-8">
-          <h1 className="text-5xl font-extrabold leading-[60px]">
+          <h1 className="lg:text-5xl text-4xl font-bold md:font-extrabold lg:leading-[60px]">
             TypeScript and Go: Syntax Comparison and Contrast
           </h1>
           {blogContent}
         </article>
       </div>
       <Separator />
-      <div className="py-8 px-16">
-        <span className="font-bold text-2xl">Top Comments</span>
+      <div className="py-8 px-3 md:px-12 lg:px-16">
+        <span className="font-bold text-xl sm:text-2xl">
+          Top Comments ({comments.length})
+        </span>
         <CommentSection comments={comments} />
       </div>
     </div>
@@ -46,7 +48,7 @@ export const BlogPost = ({ userId, comments }: PropType) => {
 };
 
 const blogContent = (
-  <div className="pt-10 text-xl flex flex-col gap-4">
+  <div className="pt-10 lg:text-xl text-lg flex flex-col gap-4">
     <p>
       TypeScript and Go are two modern programming languages that have gained
       popularity for their simplicity, efficiency, and strong type systems.
@@ -56,7 +58,9 @@ const blogContent = (
       TypeScript and Go, highlighting their similarities and differences.
     </p>
 
-    <h2 className="font-bold text-3xl">Type Annotations vs. Type Inference</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">
+      Type Annotations vs. Type Inference
+    </h2>
     <p>
       One of the key differences between TypeScript and Go is how they handle
       type annotations. TypeScript uses static typing with explicit type
@@ -67,7 +71,7 @@ const blogContent = (
       In contrast, Go employs type inference, where the compiler deduces the
       variable types based on the assigned values.
     </p>
-    <h2 className="font-bold text-3xl">Null and Undefined</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">Null and Undefined</h2>
     <p>
       TypeScript distinguishes between null and undefined, reflecting the
       semantics of JavaScript.
@@ -76,24 +80,24 @@ const blogContent = (
       Go, on the other hand, only has the nil value to represent the absence of
       a value.
     </p>
-    <h2 className="font-bold text-3xl">Control Flow</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">Control Flow</h2>
     <p>
       Both languages support familiar control flow statements like if, for, and
       switch. However, TypeScript's syntax is influenced by JavaScript, while Go
       follows a more C-like syntax.
     </p>
-    <h2 className="font-bold text-3xl">Functions</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">Functions</h2>
     <p>
       Functions in both languages are first-class citizens, but there are syntax
       differences.
     </p>
-    <h2 className="font-bold text-3xl">Error Handling</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">Error Handling</h2>
     <p>
       TypeScript uses try, catch, and throw for error handling, similar to
       JavaScript.
     </p>
     <p>Go employs explicit error handling with returned error values.</p>
-    <h2 className="font-bold text-3xl">Conclusion</h2>
+    <h2 className="font-bold text-2xl lg:text-3xl">Conclusion</h2>
     <p>
       While TypeScript and Go have distinct syntax styles influenced by their
       respective programming paradigms, both languages prioritize simplicity,

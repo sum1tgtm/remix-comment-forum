@@ -47,11 +47,11 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
               {comment.user.email}
             </Button>
             <Dot className="text-gray-400/75" />
-            <small className="ml-3 text-muted-foreground">
+            <small className="sm:ml-3 text-muted-foreground">
               {formatDate(comment.createdAt)}
             </small>
           </span>
-          <p className="text-lg">{comment.message}</p>
+          <p className="sm:text-lg">{comment.message}</p>
         </div>
         {/*  */}
         <div className="flex gap-1">
