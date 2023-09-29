@@ -21,6 +21,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async (args: DataFunctionArgs) => {
+  // add try catch
   const { userId } = await getAuth(args);
 
   const comments = await db.comment.findMany({
@@ -28,6 +29,7 @@ export const loader = async (args: DataFunctionArgs) => {
       user: {
         select: {
           imageUrl: true,
+          email: true,
         },
       },
     },

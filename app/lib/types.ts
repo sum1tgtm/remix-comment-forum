@@ -1,12 +1,12 @@
-export type CommentsType = ({
-  user: {
-    imageUrl: string;
-  };
-} & {
+export type CommentsType = {
   id: string;
   message: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   userId: string;
   parentId: string | null;
-})[];
+  user: {
+    imageUrl: string;
+    email: string;
+  };
+};

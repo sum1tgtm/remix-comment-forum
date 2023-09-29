@@ -6,7 +6,7 @@ import type { CommentsType } from "~/lib/types";
 
 interface PropType {
   userId: string | null;
-  comments: CommentsType;
+  comments: CommentsType[];
 }
 
 export const BlogPost = ({ userId, comments }: PropType) => {

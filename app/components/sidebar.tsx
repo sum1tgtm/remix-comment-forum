@@ -46,9 +46,9 @@ export const Sidebar = () => {
       <Button
         size="icon"
         variant="ghost"
-        className="rounded-full hover:bg-gray-300/50"
+        className="rounded-full hover:bg-gray-300/50 group"
       >
-        <MoreHorizontal className="text-muted-foreground hover:text-foreground" />
+        <MoreHorizontal className="text-muted-foreground group-hover:text-foreground" />
       </Button>
     </div>
   );
