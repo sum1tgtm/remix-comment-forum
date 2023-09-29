@@ -58,29 +58,6 @@ export const action = async (args: ActionFunctionArgs) => {
 
     const body = await args.request.formData();
 
-    // const comment = await db.comment.create({
-    //   data: {
-    //     message: body.get("message") as string,
-    //     parent: {
-    //       connect: {
-    //         id: body.get("parentId"),
-    //       },
-    //     },
-    //     user: {
-    //       connectOrCreate: {
-    //         where: {
-    //           userId: user.id,
-    //         },
-    //         create: {
-    //           userId: user.id,
-    //           email: user.emailAddresses[0].emailAddress,
-    //           imageUrl: user.imageUrl,
-    //         },
-    //       },
-    //     },
-    //   },
-    // });
-
     let data: QueryData = {
       message: body.get("message") as string,
       user: {

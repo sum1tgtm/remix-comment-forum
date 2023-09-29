@@ -54,9 +54,14 @@ export const CommentSection = ({ comments }: PropType) => {
           action="/?index"
           className="w-full max-w-full"
         >
+          <Input type="hidden" name="type" />
           <Input type="hidden" name="parentId" />
           <Textarea placeholder="Add to the discussion" name="message" />
-          <Button type="submit" className="mt-3 px-6" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            className="mt-3 px-6"
+            disabled={isSubmitting && !navigation.formData?.get("parentId")}
+          >
             Submit
           </Button>
         </Form>
@@ -65,7 +70,7 @@ export const CommentSection = ({ comments }: PropType) => {
       <div className="pt-6">
         {rootComments != null && rootComments.length > 0 && (
           <div className="flex gap-4 flex-col ">
-            {rootComments.map((comment) => (
+            {rootComments.map((comment, i) => (
               <div className="flex gap-1.5" key={comment.id}>
                 <Avatar className="h-8 w-8 cursor-pointer mt-3">
                   <AvatarImage
@@ -93,9 +98,7 @@ export const CommentSection = ({ comments }: PropType) => {
                   <div className="flex gap-1">
                     <Button variant="ghost" type="button">
                       <ThumbsUp className="h-4 w-4 mr-2" />
-                      <span className="font-normal">
-                        {Math.floor(Math.random() * 10)} Likes
-                      </span>
+                      <span className="font-normal">{i} Likes</span>
                     </Button>
                     <Button variant="ghost" type="button">
                       <MessageSquare className="h-4 w-4 mr-2" />
@@ -104,7 +107,7 @@ export const CommentSection = ({ comments }: PropType) => {
                   </div>
                   {/* reploy text-area */}
                   <div className="">
-                    {/* <Form
+                    <Form
                       ref={formRef}
                       method="post"
                       action="/?index"
@@ -118,11 +121,14 @@ export const CommentSection = ({ comments }: PropType) => {
                       <Button
                         type="submit"
                         className="mt-3 px-6"
-                        disabled={isSubmitting}
+                        disabled={
+                          isSubmitting &&
+                          navigation.formData?.get("parentId") === comment.id
+                        }
                       >
                         Submit
                       </Button>
-                    </Form> */}
+                    </Form>
                   </div>
                 </div>
               </div>
