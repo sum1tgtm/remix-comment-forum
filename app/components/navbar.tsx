@@ -8,7 +8,7 @@ import { UserButton, useAuth } from "@clerk/remix";
 export const Navbar = () => {
   const { userId } = useAuth();
   return (
-    <nav className="shadow-md bg-white">
+    <nav className="shadow-md bg-white max-h-14">
       <div className="max-w-screen-xl mx-auto flex py-2 px-4">
         <div className="sm:flex-1 flex items-center gap-6">
           <Link to="/">
@@ -44,8 +44,8 @@ export const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <div className="flex items-center">
-            <UserButton showName/>
+          <div className="flex items-center max-h-full">
+            <UserButton showName />
           </div>
         )}
       </div>

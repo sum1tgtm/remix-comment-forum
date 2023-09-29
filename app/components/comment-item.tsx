@@ -18,9 +18,6 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
   const replyFormRef = useRef<HTMLFormElement | null>(null);
 
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const handleFormVisibility = () => {
-    setIsFormVisible((prev) => !prev);
-  };
 
   const navigation = useNavigation();
   let isSubmitting = navigation.state === "submitting";
@@ -62,7 +59,11 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
             <ThumbsUp className="h-4 w-4 mr-2" />
             <span className="font-normal">3 Likes</span>
           </Button>
-          <Button variant="ghost" type="button" onClick={handleFormVisibility}>
+          <Button
+            variant="ghost"
+            type="button"
+            onClick={() => setIsFormVisible(true)}
+          >
             <MessageSquare className="h-4 w-4 mr-2" />
             <span className="font-normal"> Reply</span>
           </Button>
@@ -75,17 +76,27 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           className={`w-full max-w-full ${isFormVisible ? "block" : "hidden"}`}
         >
           <Input type="hidden" name="parentId" value={comment.id} />
-          <Textarea placeholder="Add to the discussion" name="message" />
-          <Button
-            type="submit"
-            className="mt-3 px-6"
-            disabled={
-              isSubmitting &&
-              navigation.formData?.get("parentId") === comment.id
-            }
-          >
-            Submit
-          </Button>
+          <Textarea placeholder="Add to the discussion" name="message" required/>
+          <div className="mt-1 float-right flex gap-2">
+            <Button
+              type="submit"
+              variant="secondary"
+              disabled={
+                isSubmitting &&
+                navigation.formData?.get("parentId") === comment.id
+              }
+              className="px-5"
+            >
+              Reply
+            </Button>
+            <Button
+              type="button"
+              onClick={() => setIsFormVisible(false)}
+              variant="ghost"
+            >
+              Dismiss
+            </Button>
+          </div>
         </Form>
         {/*  */}
         {childComments?.length > 0 && (

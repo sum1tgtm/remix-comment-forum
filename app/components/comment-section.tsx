@@ -59,7 +59,11 @@ export const CommentSection = ({ comments }: PropType) => {
         >
           <Input type="hidden" name="type" />
           <Input type="hidden" name="parentId" />
-          <Textarea placeholder="Add to the discussion" name="message" />
+          <Textarea
+            placeholder="Add to the discussion"
+            name="message"
+            required
+          />
           <Button
             type="submit"
             className="mt-3 px-6"
