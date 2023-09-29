@@ -22,15 +22,9 @@ export const CommentSection = ({ comments }: PropType) => {
   useEffect(() => {
     if (!isSubmitting) {
       commentFormRef.current?.reset();
-    }
-    if (
-      !isSubmitting &&
-      navigation.formData?.get("parendId") ===
-        replyFormRef.current?.getAttribute("parentId")
-    ) {
       replyFormRef.current?.reset();
     }
-  }, [isSubmitting, navigation.formData]);
+  }, [isSubmitting, navigation]);
 
   const commentsByParent = useMemo(() => {
     if (comments.length === 0) {
@@ -120,6 +114,8 @@ export const CommentSection = ({ comments }: PropType) => {
                       method="post"
                       action="/?index"
                       className="w-full max-w-full"
+                      // cant reset comment form without this
+                      key={Math.random()}
                     >
                       <Input type="hidden" name="parentId" value={comment.id} />
                       <Textarea
