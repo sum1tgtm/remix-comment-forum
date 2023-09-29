@@ -13,16 +13,24 @@ interface PropType {
 }
 
 export const CommentSection = ({ comments }: PropType) => {
-  const formRef = useRef<HTMLFormElement | null>(null);
+  const commentFormRef = useRef<HTMLFormElement | null>(null);
+  const replyFormRef = useRef<HTMLFormElement | null>(null);
 
   const navigation = useNavigation();
   let isSubmitting = navigation.state === "submitting";
 
   useEffect(() => {
     if (!isSubmitting) {
-      formRef.current?.reset();
+      commentFormRef.current?.reset();
     }
-  }, [isSubmitting]);
+    if (
+      !isSubmitting &&
+      navigation.formData?.get("parendId") ===
+        replyFormRef.current?.getAttribute("parentId")
+    ) {
+      replyFormRef.current?.reset();
+    }
+  }, [isSubmitting, navigation.formData]);
 
   const commentsByParent = useMemo(() => {
     if (comments.length === 0) {
@@ -49,7 +57,7 @@ export const CommentSection = ({ comments }: PropType) => {
           <AvatarFallback>JD</AvatarFallback>
         </Avatar>
         <Form
-          ref={formRef}
+          ref={commentFormRef}
           method="post"
           action="/?index"
           className="w-full max-w-full"
@@ -108,7 +116,7 @@ export const CommentSection = ({ comments }: PropType) => {
                   {/* reploy text-area */}
                   <div className="">
                     <Form
-                      ref={formRef}
+                      ref={replyFormRef}
                       method="post"
                       action="/?index"
                       className="w-full max-w-full"
