@@ -1,17 +1,18 @@
+import { createClerkClient } from "@clerk/remix/api.server";
+import { getAuth } from "@clerk/remix/ssr.server";
 import {
   redirect,
+  type ActionFunctionArgs,
   type DataFunctionArgs,
   type MetaFunction,
-  type ActionFunctionArgs,
 } from "@remix-run/node";
-import { Navbar } from "~/components/navbar";
-import { Sidebar } from "~/components/sidebar";
-import { RightPanel } from "~/components/right-panel";
-import { BlogPost } from "~/components/blog-post";
 import { useLoaderData } from "@remix-run/react";
+import { BlogPost } from "~/components/blog-post";
+import { Navbar } from "~/components/navbar";
+import { RightPanel } from "~/components/right-panel";
+import { Sidebar } from "~/components/sidebar";
 import { db } from "~/lib/db.server";
-import { getAuth } from "@clerk/remix/ssr.server";
-import { createClerkClient } from "@clerk/remix/api.server";
+import type { QueryData } from "~/lib/types";
 
 export const meta: MetaFunction = () => {
   return [
@@ -57,23 +58,59 @@ export const action = async (args: ActionFunctionArgs) => {
 
     const body = await args.request.formData();
 
-    const comment = await db.comment.create({
-      data: {
-        message: body.get("message") as string,
-        user: {
-          connectOrCreate: {
-            where: {
-              userId: user.id,
-            },
-            create: {
-              userId: user.id,
-              email: user.emailAddresses[0].emailAddress,
-              imageUrl: user.imageUrl,
-            },
+    // const comment = await db.comment.create({
+    //   data: {
+    //     message: body.get("message") as string,
+    //     parent: {
+    //       connect: {
+    //         id: body.get("parentId"),
+    //       },
+    //     },
+    //     user: {
+    //       connectOrCreate: {
+    //         where: {
+    //           userId: user.id,
+    //         },
+    //         create: {
+    //           userId: user.id,
+    //           email: user.emailAddresses[0].emailAddress,
+    //           imageUrl: user.imageUrl,
+    //         },
+    //       },
+    //     },
+    //   },
+    // });
+
+    let data: QueryData = {
+      message: body.get("message") as string,
+      user: {
+        connectOrCreate: {
+          where: {
+            userId: user.id,
+          },
+          create: {
+            userId: user.id,
+            email: user.emailAddresses[0].emailAddress,
+            imageUrl: user.imageUrl,
           },
         },
       },
+    };
+
+    const parentId = body.get("parentId");
+
+    if (parentId) {
+      data.parent = {
+        connect: {
+          id: parentId as string,
+        },
+      };
+    }
+
+    const comment = await db.comment.create({
+      data,
     });
+
     return comment;
   } catch (error) {
     return error;

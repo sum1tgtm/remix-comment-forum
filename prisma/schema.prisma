@@ -33,10 +33,6 @@ model Comment {
 
   parentId String?
   parent   Comment? @relation("ParentChild", fields: [parentId], references: [id])
-  // parent   Comment? @relation("ParentChild", fields: [parentId], references: [id], onDelete: Restrict, onUpdate: Restrict)
 
   childern Comment[] @relation("ParentChild")
-
-  // @@index([userId])
-  // @@index([parentId])
 }

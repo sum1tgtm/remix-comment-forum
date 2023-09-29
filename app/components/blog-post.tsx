@@ -2,11 +2,11 @@ import { CommentSection } from "~/components/comment-section";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Separator } from "~/components/ui/separator";
 import banner from "~/images/banner.webp";
-import type { CommentsType } from "~/lib/types";
+import type { CommentType } from "~/lib/types";
 
 interface PropType {
   userId: string | null;
-  comments: CommentsType[];
+  comments: CommentType[];
 }
 
 export const BlogPost = ({ userId, comments }: PropType) => {

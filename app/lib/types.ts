@@ -1,4 +1,4 @@
-export type CommentsType = {
+export type CommentType = {
   id: string;
   message: string;
   createdAt: string;
@@ -8,5 +8,26 @@ export type CommentsType = {
   user: {
     imageUrl: string;
     email: string;
+  };
+};
+
+export type QueryData = {
+  message: string;
+  user: {
+    connectOrCreate: {
+      where: {
+        userId: string;
+      };
+      create: {
+        userId: string;
+        email: string;
+        imageUrl: string;
+      };
+    };
+  };
+  parent?: {
+    connect: {
+      id: string;
+    };
   };
 };
