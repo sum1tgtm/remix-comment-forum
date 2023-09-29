@@ -67,8 +67,6 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           method="post"
           action="/?index"
           className="w-full max-w-full"
-          // hacky method to reset reply-form until I figure it out
-          key={Math.random()}
         >
           <Input type="hidden" name="parentId" value={comment.id} />
           <Textarea placeholder="Add to the discussion" name="message" />
