@@ -44,7 +44,7 @@ export const Navbar = () => {
             </Button>
           </div>
         ) : (
-          <UserButton />
+          <UserButton afterSignOutUrl="https://remix-comment-forum.vercel.app/" />
         )}
       </div>
     </nav>
