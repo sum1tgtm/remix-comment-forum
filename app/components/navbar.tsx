@@ -38,7 +38,7 @@ export const Navbar = () => {
             <Button
               variant="link"
               asChild
-              className="text-base outline outline-1 outline-offset-0 outline-indigo-500 transition-colors delay-100 ease-in-out hover:bg-[#fbfbfb]"
+              className="hidden text-base outline outline-1 outline-offset-0 outline-indigo-500 transition-colors delay-100 ease-in-out hover:bg-[#fbfbfb] sm:block"
             >
               <Link to="/sign-up">Create Account</Link>
             </Button>
