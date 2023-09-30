@@ -9,9 +9,9 @@ import {
 
 export const AuthorCard = () => {
   return (
-    <Card className="px-0 relative">
-      <div className="py-4 bg-indigo-950 rounded-t"></div>
-      <CardHeader className="absolute -top-1.5 flex flex-row items-end gap-4 cursor-pointer">
+    <Card className="relative px-0">
+      <div className="rounded-t bg-indigo-950 py-4"></div>
+      <CardHeader className="absolute -top-1.5 flex cursor-pointer flex-row items-end gap-4">
         <Avatar className="h-12 w-12">
           <AvatarImage src="https://github.com/shadcn.png" alt="john doe" />
           <AvatarFallback>JD</AvatarFallback>
@@ -24,7 +24,7 @@ export const AuthorCard = () => {
         <Button className="w-full">Follow</Button>
       </CardContent>
       <CardFooter className="flex flex-col items-start">
-        <span className="font-medium text-sm">JOINED</span>
+        <span className="text-sm font-medium">JOINED</span>
         <span>Sep 27, 2023</span>
       </CardFooter>
     </Card>

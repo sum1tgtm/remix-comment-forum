@@ -8,13 +8,13 @@ import { UserButton, useAuth } from "@clerk/remix";
 export const Navbar = () => {
   const { userId } = useAuth();
   return (
-    <nav className="shadow-md bg-white">
-      <div className="max-w-screen-xl mx-auto flex py-2 px-4 items-center">
-        <div className="flex-1 flex items-center gap-6">
+    <nav className="bg-white shadow-md">
+      <div className="mx-auto flex max-w-screen-xl items-center px-4 py-2">
+        <div className="flex flex-1 items-center gap-6">
           <Link to="/">
-            <img src={logo} alt="" className="w-[120px] h-auto" />
+            <img src={logo} alt="" className="h-auto w-[120px]" />
           </Link>
-          <div className="max-w-sm w-full hidden sm:block relative">
+          <div className="relative hidden w-full max-w-sm sm:block">
             <Input type="text" placeholder="Search..." />
             <Button
               type="button"
@@ -31,20 +31,20 @@ export const Navbar = () => {
             <Button
               variant="link"
               asChild
-              className="font-normal text-muted-foreground hover:bg-[#fafafa] transition-colors delay-100 ease-in-out text-base"
+              className="text-base font-normal text-muted-foreground transition-colors delay-100 ease-in-out hover:bg-[#fafafa]"
             >
               <Link to="/sign-in">Log in</Link>
             </Button>
             <Button
               variant="link"
               asChild
-              className="outline outline-offset-0 outline-1 outline-indigo-500 hover:bg-[#fbfbfb] transition-colors delay-100 ease-in-out text-base"
+              className="text-base outline outline-1 outline-offset-0 outline-indigo-500 transition-colors delay-100 ease-in-out hover:bg-[#fbfbfb]"
             >
               <Link to="/sign-up">Create Account</Link>
             </Button>
           </div>
         ) : (
-          <UserButton   />
+          <UserButton />
         )}
       </div>
     </nav>

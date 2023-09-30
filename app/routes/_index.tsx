@@ -98,9 +98,9 @@ export default function Index() {
   const { comments, userId } = useLoaderData<typeof loader>();
 
   return (
-    <div className="font-sans bg-[#f5f5f5]">
+    <div className="bg-[#f5f5f5] font-sans">
       <Navbar />
-      <main className="min-h-screen max-w-screen-xl mx-auto sm:pt-4 flex gap-4 sm:px-4">
+      <main className="mx-auto flex min-h-screen max-w-screen-xl gap-4 sm:px-4 sm:pt-4">
         <Sidebar />
         <BlogPost userId={userId} comments={comments} />
         <RightPanel />

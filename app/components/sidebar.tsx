@@ -9,12 +9,12 @@ import { Button } from "./ui/button";
 
 export const Sidebar = () => {
   return (
-    <aside className="sm:flex flex-col pt-16 xl:px-4 gap-8 items-center hidden">
+    <aside className="hidden flex-col items-center gap-8 pt-16 sm:flex xl:px-4">
       <div className="flex flex-col justify-center gap-2">
         <TooltipProvider delayDuration={10}>
           <Tooltip>
             <TooltipTrigger>
-              <Heart className="hover:text-red-500 cursor-pointer text-muted-foreground" />
+              <Heart className="cursor-pointer text-muted-foreground hover:text-red-500" />
               <span className="text-center">1</span>
             </TooltipTrigger>
             <TooltipContent>Like</TooltipContent>
@@ -25,7 +25,7 @@ export const Sidebar = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="flex flex-col justify-center gap-2">
-              <MessageCircle className="hover:text-green-500 cursor-pointer text-muted-foreground" />
+              <MessageCircle className="cursor-pointer text-muted-foreground hover:text-green-500" />
               <span className="text-center">0</span>
             </div>
           </TooltipTrigger>
@@ -36,7 +36,7 @@ export const Sidebar = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="flex flex-col justify-center gap-2">
-              <Bookmark className="hover:text-blue-500 cursor-pointer text-muted-foreground" />
+              <Bookmark className="cursor-pointer text-muted-foreground hover:text-blue-500" />
               <span className="text-center">3</span>
             </div>
           </TooltipTrigger>
@@ -46,7 +46,7 @@ export const Sidebar = () => {
       <Button
         size="icon"
         variant="ghost"
-        className="rounded-full hover:bg-gray-300/50 group"
+        className="group rounded-full hover:bg-gray-300/50"
       >
         <MoreHorizontal className="text-muted-foreground group-hover:text-foreground" />
       </Button>

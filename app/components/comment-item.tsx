@@ -32,22 +32,22 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
   const childComments = getReplies(comment.id);
   return (
     <div className="flex gap-1.5">
-      <Avatar className="h-8 w-8 cursor-pointer mt-3">
+      <Avatar className="mt-3 h-8 w-8 cursor-pointer">
         <AvatarImage src={comment.user.imageUrl} alt={comment.user.email} />
         <AvatarFallback>
           {comment.user.email.slice(0, 2).toUpperCase()}
         </AvatarFallback>
       </Avatar>
       {/*  */}
-      <div className="flex flex-col gap-1 w-full">
+      <div className="flex w-full flex-col gap-1">
         {/*  */}
-        <div className="flex flex-col gap-2 px-4 py-3 border-muted border rounded-lg">
+        <div className="flex flex-col gap-2 rounded-lg border border-muted px-4 py-3">
           <span className="flex items-center">
             <Button variant="ghost" className="px-1" type="button">
               {comment.user.email}
             </Button>
             <Dot className="text-gray-400/75" />
-            <small className="sm:ml-3 text-muted-foreground">
+            <small className="text-muted-foreground sm:ml-3">
               {formatDate(comment.createdAt)}
             </small>
           </span>
@@ -56,7 +56,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
         {/*  */}
         <div className="flex gap-1">
           <Button variant="ghost" type="button">
-            <ThumbsUp className="h-4 w-4 mr-2" />
+            <ThumbsUp className="mr-2 h-4 w-4" />
             <span className="font-normal">3 Likes</span>
           </Button>
           <Button
@@ -64,7 +64,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
             type="button"
             onClick={() => setIsFormVisible(true)}
           >
-            <MessageSquare className="h-4 w-4 mr-2" />
+            <MessageSquare className="mr-2 h-4 w-4" />
             <span className="font-normal"> Reply</span>
           </Button>
         </div>
@@ -76,8 +76,12 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           className={`w-full max-w-full ${isFormVisible ? "block" : "hidden"}`}
         >
           <Input type="hidden" name="parentId" value={comment.id} />
-          <Textarea placeholder="Add to the discussion" name="message" required/>
-          <div className="mt-1 float-right flex gap-2">
+          <Textarea
+            placeholder="Add to the discussion"
+            name="message"
+            required
+          />
+          <div className="float-right mt-1 flex gap-2">
             <Button
               type="submit"
               variant="secondary"

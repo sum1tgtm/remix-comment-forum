@@ -10,7 +10,7 @@ export const BlogList = () => {
   ];
   return (
     <Card className="">
-      <CardHeader className="font-bold text-xl py-3">
+      <CardHeader className="py-3 text-xl font-bold">
         <span className="flex flex-row items-center">
           More from &thinsp;
           <Link to="/" className="text-primary">
