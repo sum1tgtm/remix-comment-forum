@@ -17,7 +17,7 @@ export const Sidebar = () => {
               <Heart className="cursor-pointer text-muted-foreground hover:text-red-500" />
               <span className="text-center">1</span>
             </TooltipTrigger>
-            <TooltipContent>Like</TooltipContent>
+            <TooltipContent side="right">Like</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
@@ -29,7 +29,7 @@ export const Sidebar = () => {
               <span className="text-center">0</span>
             </div>
           </TooltipTrigger>
-          <TooltipContent>Jump to comments</TooltipContent>
+          <TooltipContent side="right">Jump to comments</TooltipContent>
         </Tooltip>
       </TooltipProvider>
       <TooltipProvider delayDuration={10}>
@@ -40,7 +40,7 @@ export const Sidebar = () => {
               <span className="text-center">3</span>
             </div>
           </TooltipTrigger>
-          <TooltipContent>Save to bookmarks</TooltipContent>
+          <TooltipContent side="right">Save to bookmarks</TooltipContent>
         </Tooltip>
       </TooltipProvider>
       <Button
