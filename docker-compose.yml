@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  backend:
+    container_name: simple-commenting-forum
+    build: .
+    image: simple-commenting-forum-image
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "3000:3000"
