@@ -28,3 +28,8 @@ export function formatDate(dateString: string) {
 
   return `${month} ${day}`;
 }
+
+export function trimUsername(name: string) {
+  const username = name.split("@")[0];
+  return username;
+}

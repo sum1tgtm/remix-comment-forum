@@ -1,6 +1,6 @@
 import type { CommentType } from "~/lib/types";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import { formatDate } from "~/lib/utils";
+import { formatDate, trimUsername } from "~/lib/utils";
 import { Dot, MessageSquare, ThumbsUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { Form, useNavigation } from "@remix-run/react";
@@ -31,8 +31,8 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
 
   const childComments = getReplies(comment.id);
   return (
-    <div className="flex gap-1.5">
-      <Avatar className="mt-3 h-8 w-8 cursor-pointer">
+    <div className="flex gap-1 sm:gap-1.5">
+      <Avatar className="mt-3 h-6 w-6 cursor-pointer sm:h-8 sm:w-8">
         <AvatarImage src={comment.user.imageUrl} alt={comment.user.email} />
         <AvatarFallback>
           {comment.user.email.slice(0, 2).toUpperCase()}
@@ -41,13 +41,13 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
       {/*  */}
       <div className="flex w-full flex-col gap-1">
         {/*  */}
-        <div className="flex flex-col gap-2 rounded-lg border border-muted px-4 py-3">
+        <div className="flex flex-col gap-2 rounded-lg border border-muted px-2 py-1.5 sm:px-4 sm:py-3">
           <span className="flex items-center">
             <Button variant="ghost" className="px-1" type="button">
-              {comment.user.email}
+              {trimUsername(comment.user.email)}
             </Button>
             <Dot className="text-gray-400/75" />
-            <small className="text-muted-foreground sm:ml-3">
+            <small className="text-[10px] text-muted-foreground sm:ml-3 sm:text-xs">
               {formatDate(comment.createdAt)}
             </small>
           </span>
