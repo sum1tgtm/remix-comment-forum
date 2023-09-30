@@ -1,5 +1,5 @@
-import { AuthorCard } from "./author-card";
-import { BlogList } from "./blog-list";
+import { AuthorCard } from "~/components/author-card";
+import { BlogList } from "~/components/blog-list";
 
 export const RightPanel = () => {
   return (

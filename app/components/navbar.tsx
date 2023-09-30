@@ -1,9 +1,9 @@
+import { UserButton, useAuth } from "@clerk/remix";
+import { Link } from "@remix-run/react";
 import { Search } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
-import logo from "../images/logo.png";
-import { Link } from "@remix-run/react";
-import { UserButton, useAuth } from "@clerk/remix";
+import logo from "~/images/logo.png";
 
 export const Navbar = () => {
   const { userId } = useAuth();

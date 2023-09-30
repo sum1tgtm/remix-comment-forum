@@ -1,5 +1,5 @@
+import { CommentItem } from "~/components/comment-item";
 import type { CommentType } from "~/lib/types";
-import { CommentItem } from "./comment-item";
 
 interface PropType {
   comments: CommentType[];

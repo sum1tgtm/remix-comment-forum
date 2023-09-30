@@ -16,15 +16,12 @@ import type { QueryData } from "~/lib/types";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Remix Demo" },
+    { title: "Simple Commenting Forum | Remix" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
 
 export const loader = async (args: DataFunctionArgs) => {
-  // add try catch
-  const { userId } = await getAuth(args);
-
   const comments = await db.comment.findMany({
     include: {
       user: {
@@ -41,7 +38,6 @@ export const loader = async (args: DataFunctionArgs) => {
 
   return {
     comments,
-    userId,
   };
 };
 
@@ -95,14 +91,14 @@ export const action = async (args: ActionFunctionArgs) => {
 };
 
 export default function Index() {
-  const { comments, userId } = useLoaderData<typeof loader>();
+  const { comments } = useLoaderData<typeof loader>();
 
   return (
     <div className="bg-[#f5f5f5] font-sans">
       <Navbar />
       <main className="mx-auto flex min-h-screen max-w-screen-xl gap-4 sm:px-4 sm:pt-4">
         <Sidebar />
-        <BlogPost userId={userId} comments={comments} />
+        <BlogPost comments={comments} />
         <RightPanel />
       </main>
     </div>

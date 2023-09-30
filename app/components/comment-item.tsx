@@ -1,13 +1,13 @@
-import type { CommentType } from "~/lib/types";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import { formatDate, trimUsername } from "~/lib/utils";
-import { Dot, MessageSquare, ThumbsUp } from "lucide-react";
-import { Button } from "./ui/button";
 import { Form, useNavigation } from "@remix-run/react";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+import { Dot, MessageSquare, ThumbsUp } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { CommentList } from "./comment-list";
+import { CommentList } from "~/components/comment-list";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
+import type { CommentType } from "~/lib/types";
+import { formatDate, trimUsername } from "~/lib/utils";
 
 interface PropType {
   comment: CommentType;
@@ -38,9 +38,8 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           {comment.user.email.slice(0, 2).toUpperCase()}
         </AvatarFallback>
       </Avatar>
-      {/*  */}
+
       <div className="flex w-full flex-col gap-1">
-        {/*  */}
         <div className="flex flex-col gap-2 rounded-lg border border-muted px-2 py-1.5 sm:px-4 sm:py-3">
           <span className="flex items-center">
             <Button variant="ghost" className="px-1" type="button">
@@ -53,7 +52,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
           </span>
           <p className="sm:text-lg">{comment.message}</p>
         </div>
-        {/*  */}
+
         <div className="flex gap-1">
           <Button variant="ghost" type="button">
             <ThumbsUp className="mr-2 h-4 w-4" />
@@ -68,7 +67,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
             <span className="font-normal"> Reply</span>
           </Button>
         </div>
-        {/*  */}
+
         <Form
           ref={replyFormRef}
           method="post"
@@ -102,7 +101,7 @@ export const CommentItem = ({ comment, getReplies }: PropType) => {
             </Button>
           </div>
         </Form>
-        {/*  */}
+
         {childComments?.length > 0 && (
           <CommentList comments={childComments} getReplies={getReplies} />
         )}

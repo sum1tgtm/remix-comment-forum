@@ -1,11 +1,11 @@
 import { Bookmark, Heart, MessageCircle, MoreHorizontal } from "lucide-react";
+import { Button } from "~/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
-import { Button } from "./ui/button";
+} from "~/components/ui/tooltip";
 
 export const Sidebar = () => {
   return (

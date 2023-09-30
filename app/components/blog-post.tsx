@@ -5,11 +5,10 @@ import banner from "~/images/banner.webp";
 import type { CommentType } from "~/lib/types";
 
 interface PropType {
-  userId: string | null;
   comments: CommentType[];
 }
 
-export const BlogPost = ({ userId, comments }: PropType) => {
+export const BlogPost = ({ comments }: PropType) => {
   return (
     <div className="min-h-screen bg-white">
       <img src={banner} alt="typescript vs golang" className="sm:rounded-t" />

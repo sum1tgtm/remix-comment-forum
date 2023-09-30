@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
-import { Card, CardContent, CardHeader } from "./ui/card";
-import { Separator } from "./ui/separator";
+import { Card, CardContent, CardHeader } from "~/components/ui/card";
+import { Separator } from "~/components/ui/separator";
 
 export const BlogList = () => {
   const blogList = [
@@ -9,7 +9,7 @@ export const BlogList = () => {
     "Top 10 JavaScript Libraries You Must Know",
   ];
   return (
-    <Card className="">
+    <Card>
       <CardHeader className="py-3 text-xl font-bold">
         <span className="flex flex-row items-center">
           More from &thinsp;
