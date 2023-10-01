@@ -20,7 +20,7 @@ npm run build
 npm run start
 ```
 
-This starts the application in port 3000 (default), which can be accessed using browser at [localhost:3000](localhost:3000)
+This starts the application in port 3000 (default), which can be accessed using browser at [localhost:3000](https://localhost:3000)
 
 ### Using docker
 
@@ -50,7 +50,7 @@ The application can be deployed easily in various cloud hosting providers that s
 #### Deployment using Vercel and Github
 
 - [ ] Upload the project in a github repository
-- [ ] Sign in to [vercel.com](vercel.com) using the github account
+- [ ] Sign in to [vercel.com](https://vercel.com) using the github account
 - [ ] Go to your dashboard and click on **_Add New_** button.
 - [ ] Click on Project
 - [ ] Import the repository from your github
