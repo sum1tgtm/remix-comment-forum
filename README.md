@@ -1,4 +1,4 @@
-# Welcome to Remix Commenting Forum
+# Welcome to Remix Comment Forum
 
 - [Live Demo](https://remix-comment-forum.vercel.app/)
 
