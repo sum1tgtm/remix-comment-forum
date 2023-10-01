@@ -39,7 +39,7 @@ Remove the '-d' flag if you do not want to run in in detach mode
 
 This will build and run the application inside a docker container.
 
-The application can be accessed in port 3000 of the host machine at [localhost:3000](localhost:3000)
+The application can be accessed in port 3000 of the host machine at [localhost:3000](https://localhost:3000)
 
 ## Deployment
 
@@ -66,7 +66,7 @@ The application can also be deployed in any container deployment platform like A
 ## Features
 
 - Nested comment/replies
-- Design inspired from [dev.to](dev.to)
+- Design inspired from [dev.to](https://dev.to)
 - Clerk for authentication
 - Supabase postgres as database
 - Prisma ORM
