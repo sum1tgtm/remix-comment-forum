@@ -12,6 +12,8 @@ git clone https://github.com/sum1tgtm/remix-comment-forum.git
 
 ### Without using docker
 
+- [ ] Copy the enviroment variables (in the attachments) in a .env file. Make sure it is saved in the root folder of the project
+
 From your terminal:
 
 ```sh
