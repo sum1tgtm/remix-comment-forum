@@ -3,8 +3,8 @@ import { getAuth } from "@clerk/remix/ssr.server";
 import {
   redirect,
   type ActionFunctionArgs,
-  type DataFunctionArgs,
   type MetaFunction,
+  type LoaderFunctionArgs,
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { BlogPost } from "~/components/blog-post";
@@ -21,7 +21,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const loader = async (args: DataFunctionArgs) => {
+export const loader = async (args: LoaderFunctionArgs) => {
   const comments = await db.comment.findMany({
     include: {
       user: {
