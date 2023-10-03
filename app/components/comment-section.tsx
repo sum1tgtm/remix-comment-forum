@@ -25,25 +25,21 @@ export const CommentSection = ({ comments }: PropType) => {
 
   const commentsByParent = useMemo(() => {
     if (comments.length === 0) {
-      return [];
+      return {};
     }
-    const group = {};
+    const group: Record<string, CommentType[]> = {};
     comments.forEach((comment) => {
-      //@ts-ignore
-      group[comment.parentId] ||= [];
-      //@ts-ignore
-      group[comment.parentId].push(comment);
+      group[comment.parentId || String(null)] ||= [];
+      group[comment.parentId || String(null)].push(comment);
     });
     return group;
   }, [comments]);
 
   const getReplies = (parentId: string) => {
-    //@ts-ignore
     return commentsByParent[parentId] as CommentType[];
   };
 
-  //@ts-ignore
-  const rootComments: CommentType[] = commentsByParent[null];
+  const rootComments: CommentType[] = commentsByParent[String(null)];
   return (
     <section className="pb-4 pt-8">
       <div className="flex gap-2">
